@@ -40,6 +40,7 @@ Route::prefix('admin')->name('admin.')->group(function ()
 		Route::post('/create', 'ProductController@store')->name('save');
 		Route::get('/show/{slug}', 'ProductController@show')->name('show');
 		Route::post('/show/{product}', 'ProductController@update')->name('update');
+		Route::post('/delete/{product}', 'ProductController@destroy')->name('delete');
 		Route::get('/', 'ProductController@index')->name('index');
 	});
 });

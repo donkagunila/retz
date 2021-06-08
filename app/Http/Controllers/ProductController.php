@@ -144,6 +144,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        Session::flash('success', 'Product Updated Successfully');
+        return redirect()->route('admin.product.index');
     }
 }

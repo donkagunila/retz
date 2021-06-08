@@ -9,17 +9,6 @@
 
 	      	 
 			  <div class="toast bg-success text-white" style="position: fixed; top: 20px; right: 20px; z-index: 9999" id="element" data-delay="3000">
-			    {{-- <div class="toast-header">
-			    	<span class="circle mr-2 bg-success">
-			    		<i class="fe fe-check text-white"></i>
-			    	</span>
-			    	
-			      <strong class="mr-auto">Success</strong>
-			     
-			      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-			        <span aria-hidden="true">&times;</span>
-			      </button>
-			    </div> --}}
 			    <div class="toast-body text-white">
 			      Product updated successfully  
 			      <button type="button" class="ml-5 mb-1 close text-white" data-dismiss="toast" aria-label="Close">
@@ -230,18 +219,23 @@
 							       </div>
 
 
+							       <div class="mt-5">
+							       	OR
+							       </div>
+
+
 
 
 						              
 
-						               <div class="form-group">
+						               <div class="form-group mt-5">
 
 						               	 <hr class="mt-5 mb-5">
 
 						               	 <!-- Buttons -->
 							              <button type="submit"
 							                      id="submit-all"
-							                      class="btn btn-block btn-primary">
+							                      class="btn btn-block btn-primary mt-5">
 							                Update Product
 							              </button>
 						               </div>
@@ -251,6 +245,19 @@
 
 
 							 </form>
+
+							     <hr class="mt-5 mb-5">
+
+
+							     <form class="mb-5" action="{{ route('admin.product.delete', $product->id) }}" method="post">
+							     	@csrf
+							     	<!-- Buttons -->
+							              <button type="submit"
+							                      id="submit-all"
+							                      class="btn btn-block btn-danger mt-5">
+							                Delete Product
+							              </button>
+							     </form>
 
 
 			          </div>

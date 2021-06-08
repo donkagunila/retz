@@ -5,6 +5,17 @@
 @section('content')
 	    @include('multiauth::layouts.shared.nav')
 
+
+
+	     <div class="toast bg-success text-white" style="position: fixed; top: 20px; right: 20px; z-index: 9999" id="element" data-delay="3000">
+			    <div class="toast-body text-white">
+			      Product deleted successfully  
+			      <button type="button" class="ml-5 mb-1 close text-white" data-dismiss="toast" aria-label="Close">
+			        <span aria-hidden="true">&times;</span>
+			      </button>
+			    </div>
+			  </div>
+
 	        <div class="main-content">
 
 
@@ -166,5 +177,20 @@
 			        </div> <!-- / .row -->
 			      </div>
 	        </div>
+
+@endsection
+
+
+@section('scripts')
+
+@if(Session::has('success'))
+
+	<script>
+		$('document').ready(function(){
+			  $('#element').toast('show');
+		});
+	</script>
+
+@endif
 
 @endsection
