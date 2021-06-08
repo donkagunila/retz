@@ -41,7 +41,7 @@
 
                     <!-- Heading -->
                     <span class="h2 mb-0">
-                      {{ $total_products }}
+                      {{ $total_products ?? 0 }}
                     </span>                   
 
                    
@@ -59,7 +59,7 @@
                 <div class="row mt-3 pb-0">
                   <div class="col pb-0">
                     <span class="text-success small">
-                      {{ $total_products_month }}%
+                      {{ $total_products_month ?? 0 }}%
                     </span>
 
                      <span class="text-muted small">
