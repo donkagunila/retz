@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Auth;
+use Session;
 use App\Category;
 class ProductController extends Controller
 {
@@ -82,9 +83,17 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Product $product, $slug)
     {
-        //
+
+        $product = Product::getProductBySlug($slug);
+
+        if (!$product) {
+            return redirect()->back();
+        }
+        $category = Category::getCategory($product->category);
+        $categories = Category::all();
+        return view($this->dir. 'show', compact('product', 'categories'));
     }
 
     /**
@@ -107,7 +116,24 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+
+         if($request->file('file')){
+            $image = $request->file('file');
+            $imageName = time() . $image->getClientOriginalName();
+            $image->move(public_path('uploads/products/'),$imageName);
+            $product->cover = $imageName;
+        } else {
+             $imageName = "product.png";
+        }
+
+        $product->title = request('title');
+        $product->price = request('price');
+        $product->summary = request('summary');
+        $product->description = request('description');
+        $product->save();
+
+        Session::flash('success', 'Product Updated Successfully');
+        return redirect()->back();
     }
 
     /**

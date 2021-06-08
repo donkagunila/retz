@@ -13873,3 +13873,13 @@ button:focus {
 .select2-selection__placeholder {
     color: #b1c2d9;
 }
+
+
+.circle{
+    height: 25px;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}

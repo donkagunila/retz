@@ -20,6 +20,7 @@ Route::get('/contact-us', 'SiteController@contact')->name('contact');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/shop', 'SiteController@index')->name('shop');
 
 Route::prefix('admin')->name('admin.')->group(function ()
 {
@@ -38,6 +39,7 @@ Route::prefix('admin')->name('admin.')->group(function ()
 		Route::get('/create', 'ProductController@create')->name('create');
 		Route::post('/create', 'ProductController@store')->name('save');
 		Route::get('/show/{slug}', 'ProductController@show')->name('show');
+		Route::post('/show/{product}', 'ProductController@update')->name('update');
 		Route::get('/', 'ProductController@index')->name('index');
 	});
 });
