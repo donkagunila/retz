@@ -170,7 +170,7 @@
 
 
         <div class="nm_btn_align_center mb-5">
-				<a href="#" class="nm_btn nm_btn_md nm_btn_border">
+				<a href="{{ route('shop.all')}}" class="nm_btn nm_btn_md nm_btn_border">
 					<span class="nm_btn_title">DISCOVER MORE</span>
 					<span class="nm_btn_bg"></span>
 				</a>

@@ -8,7 +8,7 @@
 
         <!-- Brand -->
         <a class="navbar-brand" href="index.html">
-          <img src=" {{ asset('assets/img/logo/logo.png') }}" class="navbar-brand-img mx-auto" alt="...">
+          <!-- <img src=" {{ asset('assets/img/logo/logo.png') }}" class="navbar-brand-img mx-auto" alt="..."> -->
           
         </a>
 

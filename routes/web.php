@@ -22,6 +22,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/shop', 'SiteController@index')->name('shop');
 
+Route::prefix('shop')->name('shop.')->group(function(){
+	Route::get('/all', 'ShopController@index')->name('all');
+});
+
 Route::prefix('admin')->name('admin.')->group(function ()
 {
 	Route::prefix('/categories')->name('category.')->group(function ()
